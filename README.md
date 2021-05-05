@@ -6,7 +6,9 @@ Homeworks №1 for ML in production
 
 * Устанавливаем виртуальную среду и необходимые библиотеки:
 ```python -m venv .venv```
+
 ```source .venv/bin/activate```
+
 ```pip install -r requirements.txt```
 
 * Команда, чтобы запустить EDA (exploratory data analysis) по датасету: ```python ml_project/reports/eda_reports.py``` на выходе получается файл reports.txt с полным отчетом.
