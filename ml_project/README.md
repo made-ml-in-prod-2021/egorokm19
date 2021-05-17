@@ -17,7 +17,7 @@ Project Organization
     │   │   └── heart.csv  <- Dataset.    
     │   └── make_dataset.py
     │
-    ├── models                         <- Parametrs for entities.
+    ├── entities                       <- Parametrs for entities.
     │   ├── eda_params.py              <- EDA analysis.
     │   ├── feature_params.py          <- Parametrs features.
     │   ├── logger_params.py           <- Parametrs logging.
