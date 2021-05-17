@@ -22,7 +22,7 @@ $ python make_request.py
 ----------
 #### Запуск для тестов проекта:
 ```shell script
-$ python test_pipeline.py
+$ pytest test_pipeline.py
 ```
 ----------
 #### Оптимизация докер образа:

@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, validator
 
 
 class InputParams(BaseModel):
@@ -18,3 +18,24 @@ class InputParams(BaseModel):
     slope: int = Field(default=0, description="The slope of the peak exercise ST segment.")
     ca: int = Field(default=0, description="Number of major vessels (0-3) colored by flourosopy.")
     thal: int = Field(default=0, description="Thalium Stress Test Result.")
+        
+    @validator('sex')
+    def check_sex(cls, value_sex):
+        """CHech sex values."""
+        if value_sex < 0 or value_sex > 2:
+            raise ValueError("The gender field cannot have a value of 0 or 1")
+        return value_sex
+    
+    @validator('fbs')
+    def check_fbs(cls, value_fbs):
+        """CHech sex values."""
+        if value_fbs < 0 or value_fbs > 2:
+            raise ValueError("The fbs field cannot have a value of 0 or 1")
+        return value_fbs
+    
+    @validator('exang')
+    def check_exang(cls, value_exang):
+        """CHech sex values."""
+        if value_exang < 0 or value_exang > 2:
+            raise ValueError("The exang field cannot have a value of 0 or 1")
+        return value_exang
