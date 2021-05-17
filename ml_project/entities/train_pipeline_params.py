@@ -1,9 +1,10 @@
-from dataclasses import dataclass
-from .split_params import SplittingParams
-from .feature_params import FeatureParams
-from .train_params import TrainingParams
-from marshmallow_dataclass import class_schema
 import yaml
+from dataclasses import dataclass
+from marshmallow_dataclass import class_schema
+
+from ml_project.entities.split_params import SplittingParams
+from ml_project.entities.feature_params import FeatureParams
+from ml_project.entities.train_params import TrainingParams
 
 
 @dataclass()

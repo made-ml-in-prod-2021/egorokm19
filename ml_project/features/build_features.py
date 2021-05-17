@@ -5,7 +5,6 @@ from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 
-
 from ml_project.entities import FeatureParams
 
 

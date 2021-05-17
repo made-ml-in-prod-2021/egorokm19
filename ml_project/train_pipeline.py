@@ -2,22 +2,19 @@ import json
 import logging
 import logging.config
 import yaml
-
 import click
 
+from utils import setup_logging
 from ml_project.data import read_dataset, split_train_val_data
-
 from ml_project.entities import (
     TrainingPipelineParams,
     read_training_pipeline_params,
 )
-
 from ml_project.features import (
     build_transformer,
     transform_features,
     extract_target
 )
-
 from ml_project.models import (
     train_model,
     predict,
@@ -27,16 +24,15 @@ from ml_project.models import (
 
 
 logger = logging.getLogger(__name__)
-
-
-def setup_logging(training_pipeline_params: TrainingPipelineParams):
+        
+        
+def save_metrics(metric_path: str, metrics: dict):
     """
-    Setup logger in yaml.
+    Save metrics.
     """
-    with open(training_pipeline_params.logging_config_path) as config_fin:
-        config = yaml.safe_load(config_fin)
-        logging.config.dictConfig(config)
-
+    with open(metric_path, "w") as metric_file:
+        json.dump(metrics, metric_file)
+        
 
 def train_pipeline(training_pipeline_params: TrainingPipelineParams):
     """
@@ -78,9 +74,8 @@ def train_pipeline(training_pipeline_params: TrainingPipelineParams):
     )
 
     logger.info(f"Metrics on test: {metrics}")
-    with open(training_pipeline_params.metric_path, "w") as metric_file:
-        json.dump(metrics, metric_file)
-        logger.info(f"Metrics save in file")
+    save_metrics(metric_path=training_pipeline_params.metric_path, metrics=metrics)
+    logger.info(f"Metrics save in file")
 
     save_model(model, training_pipeline_params.output_model_path)
 

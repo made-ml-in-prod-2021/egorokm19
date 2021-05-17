@@ -28,7 +28,6 @@ def generate_dataframe(data_shape, random_state, columns=None):
     })
 
     if columns:
-        for col in columns:
-            dataset[col] = columns[col]
+        dataset = dataset[colums]
 
     return dataset

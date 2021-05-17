@@ -3,6 +3,7 @@ import random
 import logging
 from logging import Logger
 import numpy as np
+import yaml
 
 from ml_project.entities import LoggerParams
 
@@ -46,3 +47,12 @@ def get_logger(
     if not logger.handlers:
         return build_logger(name, params)
     return logger
+
+
+def setup_logging(params):
+    """
+    Setup logger in yaml.
+    """
+    with open(params.logging_config_path) as config_fin:
+        config = yaml.safe_load(config_fin)
+        logging.config.dictConfig(config)

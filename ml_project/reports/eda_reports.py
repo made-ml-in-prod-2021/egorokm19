@@ -50,7 +50,7 @@ def get_stats(writer: Logger, dataset: pd.DataFrame):
     """
     Print statistics dataset.
     """
-    writer.info(f'*** Outputting the first 5 lines: ***\n{dataset.head}\n')
+    writer.info(f'*** Outputting the first 5 lines: ***\n{dataset.head(n=5)}\n')
     writer.info(f'*** Info dataset: ***\n{dataset.info()}\n')
     writer.info(f'*** Describe dataset: ***\n{dataset.describe()}\n')
     writer.info(f'*** Values missing in dataset: ***\n{dataset.isnull().sum()}\n')
@@ -73,7 +73,7 @@ def save_figure_correlations(dataset: pd.DataFrame):
     sns_heatmap.figure.savefig("ml_project/reports/figures/dataset_corr.png")
 
 
-def main(params: EDAReportsParams):
+def main(params):
     """
     Pipeline entry point.
     """
@@ -90,4 +90,5 @@ def main(params: EDAReportsParams):
 
 
 if __name__ == '__main__':
-    main(EDAReportsParams)
+    eda_params = EDAReportsParams()
+    main(eda_params)
