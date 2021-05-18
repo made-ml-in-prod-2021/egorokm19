@@ -4,6 +4,7 @@ import json
 import pandas as pd
 from fastapi import FastAPI, HTTPException
 from sklearn.pipeline import Pipeline
+
 from entities import InputParams, PredictParams
 
 
@@ -15,6 +16,7 @@ def load_object(
     """
     with open(path, "rb") as f:
         return pickle.load(f)
+
     
 def open_json(path: str) -> json:
     """
