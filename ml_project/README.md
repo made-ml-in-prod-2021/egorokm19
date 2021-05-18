@@ -6,15 +6,11 @@ This is the first homework project
 Project Organization
 ------------
 
-    ├── LICENSE
-    ├── Makefile           <- Makefile with commands like `make data` or `make train`
-    ├── README.md          <- The top-level README for developers using this project.
     ├── configs            <- Config file in model and logging.
     │   ├── logging.conf.yml    
-    │   └── train_config.yaml
-    ├── data               <- The original, immutable data dump.
-    │   ├── raw
-    │   │   └── heart.csv  <- Dataset.    
+    │   ├── train_config.yaml
+    │   └── test_config.yaml
+    ├── data               <- The original, immutable data dump.  
     │   └── make_dataset.py
     │
     ├── entities                       <- Parametrs for entities.
@@ -27,27 +23,40 @@ Project Organization
     │
     ├── features       <- Scripts to turn raw data into features for modeling
     │   └── build_features.py
+    ├── files          <- All files
+    │   ├── data_models
+    │   │   ├── test
+    |   |   |    ├── metrics.json
+    |   |   |    └── model.pkl
+    |   |   └── train
+    |   |       ├── metrics.json
+    |   |       └── model.pkl
+    │   ├── figures                      <- Generated graphics and figures to be used in reporting
+    │   │   └── dataset_corr.png
+    │   ├── raw
+    │   │   ├── heart.csv
+    │   │   └── test.csv                 <- Generated random dataset.
+    |   └── reports
+    │       └── reports.txt
     │
     ├── models         <- Scripts to train models and then use trained models to make
     │   │                 predictions
-    │   ├── utils.py
-    │   └── metrics.json
+    │   └── utils.py
     │
     ├── notebooks          <- Jupyter notebooks. EDA for dataset.
+    │   └── eda_data.ipynb
     │
     ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   ├── eda_reports.py <- Generated analysis as txt file.
-    │   └── figures        <- Generated graphics and figures to be used in reporting
+    │   └──eda_reports.py <- Generated analysis as txt file.
     │
     ├── test                             <- Test for projects.
     │   ├── data                         <- Test for dataset.
-    │   │   ├── test_make_dataset.py
-    │   │   └── test.csv                 <- Generated random dataset.
+    │   │   └── test_make_dataset.py           
     │   ├── features                     <- Test for features.
     │   │   └── test_process_features.py
     │   ├── models                       <- Test for models.
     │   │   └── test_process_features.py
-    │   └── data_generator               <- Scripts for generated random data.
+    │   └── data_generator.py            <- Scripts for generated random data.
     │
     ├── LICENSE    <- Project license.
     │
