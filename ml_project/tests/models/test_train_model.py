@@ -55,7 +55,3 @@ def test_can_save_model(tmpdir: LocalPath):
 
     assert isinstance(model, RandomForestClassifier), \
         f"unexpected model {model.__dict__['base_estimator']}"
-
-
-
-
