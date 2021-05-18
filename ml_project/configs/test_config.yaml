@@ -1,7 +1,7 @@
-logging_config_path: "ml_project/tests/logging.conf.yml"
-input_data_path: "ml_project/tests/data/test.csv"
-output_model_path: "ml_project/tests/models/model.pkl"
-metric_path: "ml_project/tests/models/metrics.json"
+logging_config_path: "ml_project/configs/logging.conf.yml"
+input_data_path: "ml_project/files/raw/test.csv"
+output_model_path: "ml_project/files/data_models/test/model.pkl"
+metric_path: "ml_project/files/data_models/test/metrics.json"
 split_params:
   val_size: 0.3
   random_state: 19

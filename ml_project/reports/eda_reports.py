@@ -12,6 +12,7 @@ ALL_FEATURES = ['sex', 'cp', 'fbs', 'restecg',
                 'exang', 'slope', 'thal', 'age',
                 'trestbps', 'chol', 'thalach', 'oldpeak', 'ca']
 TARGET_COl = 'target'
+PATH_FIGURE = "ml_project/files/figures/dataset_corr.png"
 
 
 def option_pandas():
@@ -29,7 +30,6 @@ def build_report(writer: Logger, config_params: EDAReportsParams):
     Create EDA reports.
     """
     dataset = pd.read_csv(config_params.path_data)
-
     get_title(writer, config_params.path_data)
     get_stats(writer, dataset)
     get_correlations(writer, dataset)
@@ -70,7 +70,7 @@ def save_figure_correlations(dataset: pd.DataFrame):
     Save figure correlation.
     """
     sns_heatmap = sns.heatmap(dataset[ALL_FEATURES].corr())
-    sns_heatmap.figure.savefig("ml_project/reports/figures/dataset_corr.png")
+    sns_heatmap.figure.savefig(PATH_FIGURE)
 
 
 def main(params):

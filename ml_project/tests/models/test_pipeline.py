@@ -3,7 +3,8 @@ import os
 from ml_project.train_pipeline import train_pipeline
 from ml_project.entities import read_training_pipeline_params
 
-CONFIG_PATH = "ml_project/tests/models/test_config.yaml"
+
+CONFIG_PATH = "ml_project/configs/test_config.yaml"
 
 
 def test_can_train_metrics():

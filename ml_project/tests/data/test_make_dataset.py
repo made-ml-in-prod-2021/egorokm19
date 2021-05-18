@@ -9,20 +9,22 @@ from ml_project.entities.split_params import SplittingParams
 from ml_project.tests.data_generator import generate_dataframe
 
 
-DATA_PATH = "ml_project/data/raw/heart.csv"
+DATA_PATH = "ml_project/files/raw/heart.csv"
+DATA_TEST = "ml_project/files/raw/test.csv"
 TARGET_COL = "target"
 SMALL_SHAPE = 300
 MEAN_SHAPE = 500
+VAL_FEATURE = 9
 
 
 @pytest.fixture()
 def data_small() -> pd.DataFrame:
-    return generate_dataframe(SMALL_SHAPE, 9)
+    return generate_dataframe(SMALL_SHAPE, VAL_FEATURE)
 
 
 @pytest.fixture()
 def data_mean() -> pd.DataFrame:
-    return generate_dataframe(MEAN_SHAPE, 9)
+    return generate_dataframe(MEAN_SHAPE, VAL_FEATURE)
 
 
 def test_can_load_dataset(data_small):
@@ -40,9 +42,8 @@ def test_read_data(tmpdir, data_small):
     """
     Test open file.
     """
-    filepath = tmpdir.join('test.csv')
-    data_small.to_csv(filepath, index=False)
-    data = read_dataset(filepath)
+    data_small.to_csv(DATA_TEST, index=False)
+    data = read_dataset(DATA_TEST)
 
     assert np.allclose(data_small.values, data.values)
 
