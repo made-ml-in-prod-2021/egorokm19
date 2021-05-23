@@ -1,0 +1,28 @@
+logging_config_path: "ml_project/configs/logging.conf.yml"
+input_data_path: "ml_project/files/raw/heart.csv"
+output_model_path: "ml_project/files/data_models/train/model.pkl"
+metric_path: "ml_project/files/data_models/train/metrics.json"
+split_params:
+  val_size: 0.2
+  random_state: 42
+train_params:
+  model_type: "RandomForestClassifier"
+  random_state: 42
+  max_depth: 4
+feature_params:
+  all_features:
+    - "sex"
+    - "cp"
+    - "fbs"
+    - "restecg"
+    - "exang"
+    - "slope"
+    - "ca"
+    - "thal"
+    - "age"
+    - "trestbps"
+    - "chol"
+    - "thalach"
+    - "oldpeak"
+  target_col: "target"
+
